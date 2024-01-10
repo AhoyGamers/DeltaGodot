@@ -90,9 +90,11 @@ func team_move(point : Vector2):
 	#print(main_pchar.global_position)
 	anim_ended.emit(-1)
 
+#moves a player character to a single point
 func pchar_move(point : Vector2):
 	pass
 
+#process direction player wants to go.
 func process_movement():
 	var mov : Vector2
 	var moving : bool = false
@@ -110,12 +112,14 @@ func process_movement():
 	elif Input.is_action_pressed("ui_up"):
 		mov.y -= 1
 		moving = true
-	if moving:
+	if moving: #if moving, check for sprint and turn character
 		move_step(mov)
-	else:
+	else: #if did not move, set speed to 0, stop anim
 		sprint = 0
 		run = 0
+		main_pchar.stop_anim()
 
+#move the leader based on the physics system, and detect whether running or not
 func move_step(mov : Vector2):
 	run = mini(run + 1, run_cap)
 	var running : bool = Input.is_action_pressed("run")
@@ -130,16 +134,25 @@ func move_step(mov : Vector2):
 	else:
 		sprint = 0
 	
+	#actually move the leader
 	main_pchar.set_velocity(mov * cur_speed)
 	main_pchar.move_and_slide()
 	var moved_dir : Vector2 = main_pchar.velocity.round()
-
-	if moved_dir == Vector2.ZERO:
-		sprint = 0
-		run = 0
-		return
 	
-	if last_mov != Vector2.ZERO: #Add points to the path
+	#swap leader's animation based on their movement
+	if moved_dir.x > moved_dir.y:
+		if moved_dir.x > 0:
+			main_pchar.play_anim("right")
+		else:
+			main_pchar.play_anim("up")
+	else:
+		if moved_dir.y > 0:
+			main_pchar.play_anim("down")
+		else:
+			main_pchar.play_anim("left")
+	
+	#Have the followers move to the leader
+	if last_mov != Vector2.ZERO: #Add points to the path for followers
 		if last_mov != moved_dir:
 			path.push_back(main_pchar.global_position)
 			path_dirs.push_back(moved_dir)

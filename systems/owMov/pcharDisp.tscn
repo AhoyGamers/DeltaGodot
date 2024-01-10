@@ -14,8 +14,7 @@ script = ExtResource("3")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1")
-animation = &"down"
-frame = 1
+animation = &"left"
 offset = Vector2(0, -23)
 
 [node name="camera" type="Camera2D" parent="."]
