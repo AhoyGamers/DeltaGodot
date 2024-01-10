@@ -1,7 +1,6 @@
 #The controllable party. This should be present in every scene,o r else the player cannot move.
 #Spawns in each character in the global party array, and allows player to control the first one.
 
-
 extends Node2D
 
 var can_move : bool = true
@@ -13,8 +12,8 @@ var walking_speed : int = 100
 var walked_start : bool = false
 const char_separation : int = 30
 var pchar_disps : Array
-var pchar_amount : int
-var main_pchar : CharacterBody2D
+var pchar_amount : int #how many characters are currently in the party
+var main_pchar : CharacterBody2D #which character is currently being controlled
 
 var last_mov = Vector2(0, 0)
 var run : int = 0
@@ -44,6 +43,8 @@ func _ready():
 		path_progress[n] = 0
 		pchar_steps[n] = 0
 
+#find the character files tied to the IDs found in the party_ids var in GameplayManager
+#then add in children to the party object that are all based on the pchar PackedScene
 func setup() -> void:
 	for pchar_id in GameplayManager.party_ids:
 		if GlobalResourceContainer.pchars.has(pchar_id):
@@ -71,6 +72,9 @@ func _physics_process(_delta):
 	if !can_move: return
 	process_movement()
 
+#smoothly moves the leader of the team to a given point.
+#the rest of the party will follow the leader
+#once completed, emit anim_ended signal
 func team_move(point : Vector2):
 	for _c in pchar_disps:
 		var c : CharacterBody2D = _c
@@ -83,7 +87,7 @@ func team_move(point : Vector2):
 		await get_tree().physics_frame
 		move_step(dir)
 	
-	print(main_pchar.global_position)
+	#print(main_pchar.global_position)
 	anim_ended.emit(-1)
 
 func pchar_move(point : Vector2):
@@ -129,8 +133,7 @@ func move_step(mov : Vector2):
 	main_pchar.set_velocity(mov * cur_speed)
 	main_pchar.move_and_slide()
 	var moved_dir : Vector2 = main_pchar.velocity.round()
-	
-	print(moved_dir)
+
 	if moved_dir == Vector2.ZERO:
 		sprint = 0
 		run = 0

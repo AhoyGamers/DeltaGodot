@@ -9,8 +9,10 @@ var points = [
 ]
 
 func _ready():
+	#animation()
 	pass
 
+#test animation
 func animation():
 	party.can_move = false
 	

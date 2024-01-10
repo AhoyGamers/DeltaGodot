@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="pchar_dat" load_steps=9 format=3 uid="uid://d3h00y5xgcj3i"]
+
+[ext_resource type="Texture2D" uid="uid://bruwe28npgcc7" path="res://systems/owMov/assets/noelle/noelleWalk.png" id="1_r1vma"]
+[ext_resource type="Script" path="res://systems/owMov/pchar_res.gd" id="2_6ar2c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kolo"]
+atlas = ExtResource("1_r1vma")
+region = Rect2(0, 0, 23, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax0hm"]
+atlas = ExtResource("1_r1vma")
+region = Rect2(28, 0, 23, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym25h"]
+atlas = ExtResource("1_r1vma")
+region = Rect2(56, 0, 23, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcxmo"]
+atlas = ExtResource("1_r1vma")
+region = Rect2(84, 0, 23, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7jooy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kolo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax0hm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym25h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcxmo")
+}],
+"loop": true,
+"name": &"down",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tl2sf"]
+height = 44.0
+
+[resource]
+script = ExtResource("2_6ar2c")
+id = "noelle"
+animations = SubResource("SpriteFrames_7jooy")
+sprite_offset = Vector2(0, -23)
+collision_shape = SubResource("CapsuleShape2D_tl2sf")

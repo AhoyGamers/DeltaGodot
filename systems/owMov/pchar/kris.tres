@@ -1,16 +1,144 @@
-[gd_resource type="Resource" script_class="pchar_dat" load_steps=5 format=3 uid="uid://ji8cthrnc20n"]
+[gd_resource type="Resource" script_class="pchar_dat" load_steps=22 format=3 uid="uid://ji8cthrnc20n"]
 
 [ext_resource type="Texture2D" uid="uid://dykif66mv0uca" path="res://systems/owMov/assets/kris/kris_walking_down_1.png" id="1_f36wt"]
 [ext_resource type="Script" path="res://systems/owMov/pchar_res.gd" id="1_tq4ig"]
+[ext_resource type="Texture2D" uid="uid://c71m1dyk8hmlb" path="res://systems/owMov/assets/kris/kris_walk_sheet.png" id="2_ntn4w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6v37"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(0, 0, 19, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2pt8"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(24, 0, 19, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqxj5"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(48, 0, 19, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jgy4"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(72, 0, 19, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2cv7"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(0, 45, 19, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er820"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(24, 45, 19, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48tf0"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(48, 45, 19, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owypy"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(72, 45, 19, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11g30"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(0, 90, 19, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6xrx"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(24, 90, 19, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt52e"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(48, 90, 19, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjtjy"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(72, 90, 19, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccvnu"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(0, 135, 19, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mo0u"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(24, 135, 19, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itshf"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(48, 135, 19, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugesc"]
+atlas = ExtResource("2_ntn4w")
+region = Rect2(72, 135, 19, 38)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q8s61"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_f36wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6v37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2pt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqxj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jgy4")
 }],
 "loop": true,
 "name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2cv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er820")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48tf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owypy")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11g30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6xrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt52e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjtjy")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccvnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mo0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itshf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugesc")
+}],
+"loop": true,
+"name": &"up",
 "speed": 5.0
 }]
 
