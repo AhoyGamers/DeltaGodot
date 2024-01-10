@@ -1,7 +1,0 @@
-res://default_env.tres
-res://systems/ui/dialogSystem/dialogSystem.tscn
-res://mod/test/testCutscene.tscn
-res://systems/owMov/party.tscn
-res://systems/owMov/pcharDisp.tscn
-res://systems/owMov/party.gd
-res://autoload/gameplayManager.gd
