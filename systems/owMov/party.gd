@@ -1,3 +1,7 @@
+#The controllable party. This should be present in every scene,o r else the player cannot move.
+#Spawns in each character in the global party array, and allows player to control the first one.
+
+
 extends Node2D
 
 var can_move : bool = true

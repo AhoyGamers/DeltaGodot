@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Super MoizezRune"
-config/features=PackedStringArray("4.1")
+run/main_scene="res://mod/test/testCutscene.tscn"
+config/features=PackedStringArray("4.2")
 config/icon="res://icon.png"
 
 [autoload]
