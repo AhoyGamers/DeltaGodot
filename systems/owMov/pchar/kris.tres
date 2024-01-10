@@ -1,12 +1,8 @@
-[gd_resource type="Resource" script_class="pchar_dat" load_steps=22 format=3 uid="uid://ji8cthrnc20n"]
+[gd_resource type="Resource" script_class="pchar_dat" load_steps=21 format=3 uid="uid://ji8cthrnc20n"]
 
 [ext_resource type="Texture2D" uid="uid://dykif66mv0uca" path="res://systems/owMov/assets/kris/kris_walking_down_1.png" id="1_f36wt"]
 [ext_resource type="Script" path="res://systems/owMov/pchar_res.gd" id="1_tq4ig"]
 [ext_resource type="Texture2D" uid="uid://c71m1dyk8hmlb" path="res://systems/owMov/assets/kris/kris_walk_sheet.png" id="2_ntn4w"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g6v37"]
-atlas = ExtResource("2_ntn4w")
-region = Rect2(0, 0, 19, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a2pt8"]
 atlas = ExtResource("2_ntn4w")
@@ -73,9 +69,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_f36wt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g6v37")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a2pt8")

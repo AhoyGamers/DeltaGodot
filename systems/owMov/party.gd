@@ -175,11 +175,14 @@ func move_step(mov : Vector2):
 		
 		path_dirs[-1] = moved_dir
 		path_anims[-1] = get_anim(moved_dir)
+		
 	
 	pchar_follow()
 #	$debugText0.text = str(path) + "\n" +str(path_steps) + "\n" + str(pchar_steps) + "\n" + str(path_progress) + "\n" + str(path_progress) + "\n"
 
-func pchar_follow(): #Move the pchars that follow the main one
+#Move the pchars that follow the main one
+#as well as update their animation (should probably make those independent
+func pchar_follow(): 
 	for pchar_indx in (pchar_amount - 1): #this is the segment where you actually move the pchars
 		if !walked_start:
 			if walked_distance / char_separation < pchar_indx + 1: #Enough was not walked
@@ -198,13 +201,20 @@ func pchar_follow(): #Move the pchars that follow the main one
 			pchar_steps[pchar_indx] += 1
 			pchar_disp.set_velocity(last_mov)
 			pchar_disp.move_and_slide()
-			pchar_disp.velocity
+			if last_mov.x > last_mov.y:
+				if last_mov.x > 0:
+					pchar_disp.play_anim("right")
+				else:
+					pchar_disp.play_anim("up")
+			else:
+				if last_mov.y > 0:
+					pchar_disp.play_anim("down")
+				else:
+					pchar_disp.play_anim("left")
 			continue
 		
 		var next_path_point : Vector2 = path[pchar_progress]
 		var next_path_dir : Vector2 = path_dirs[pchar_progress]
-		
-		
 		var reached_path_point : bool = path_steps[pchar_progress] == pchar_steps[pchar_indx]
 		
 		if reached_path_point:
@@ -227,6 +237,16 @@ func pchar_follow(): #Move the pchars that follow the main one
 		else:
 			pchar_disp.set_velocity(next_path_dir)
 			pchar_disp.move_and_slide()
+			if next_path_dir.x > next_path_dir.y:
+				if next_path_dir.x > 0:
+					pchar_disp.play_anim("right")
+				else:
+					pchar_disp.play_anim("up")
+			else:
+				if next_path_dir.y > 0:
+					pchar_disp.play_anim("down")
+				else:
+					pchar_disp.play_anim("left")
 			pchar_disp.velocity
 		pchar_steps[pchar_indx] += 1
 
